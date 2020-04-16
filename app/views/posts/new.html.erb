@@ -1,0 +1,12 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+<% @post.errors.full_messages.each do |message| %>
+	<%= message %>
+<% end %>
+
+<%= form_tag("/posts/create") do %>
+	<textarea name="content"><%= @post.content %></textarea>
+	<br/>
+	<input type="submit" value="submit">
+<% end %>

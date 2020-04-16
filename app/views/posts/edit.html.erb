@@ -1,0 +1,12 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/edit.html.erb</p>
+
+<% @post.errors.full_messages.each do |message| %>
+	<%= message %>
+<% end %>
+
+<%= form_tag("/posts/#{@post.id}/update") do %>
+	<textarea name="content"><%= @post.content %></textarea>
+	<br/>
+	<input type="submit" value="更新">
+<% end %>

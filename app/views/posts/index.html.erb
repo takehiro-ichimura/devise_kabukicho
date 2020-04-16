@@ -1,0 +1,14 @@
+<h1>投稿一覧</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<% @posts.each do |post| %>
+	<div class="post-index-item">
+		投稿者:<%= post.user.username %>
+		<br/>
+		<%= post.content.truncate(50) %>
+		<br/>
+		投稿日時: 
+		<%= post.created_at.to_s[0, 16] %>
+		<%= link_to("もっと見る", "/posts/#{post.id}")%>
+	</div>
+<% end %>
