@@ -1,0 +1,13 @@
+<h1>Dms#show</h1>
+<p>Find me in app/views/dms/show.html.erb</p>
+
+<%= form_tag("/dms/#{@user.id}/send") do %>
+	<textarea name="content"></textarea>
+	<br/>
+	<input type="submit" value="送信">
+<% end %>
+
+<% @dms.each do |dm| %>
+    <%= dm.user.username %> to <%= dm.receive_user.username %></br>
+    <%= dm.content %></br>
+<% end %>

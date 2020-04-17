@@ -1,0 +1,13 @@
+<h1>Dms#index</h1>
+<p>Find me in app/views/dms/index.html.erb</p>
+
+<% counted_user = [] %>
+<% @dms.each do |dm| %>
+    <% unless counted_user.include?(dm.talking_user(current_user).id) %>
+        <div>
+        <%= link_to("#{dm.talking_user(current_user).username}さんとDM", "/dms/#{dm.talking_user(current_user).id}") %></br>
+        <%= dm.content.truncate(20) %>
+        <% counted_user.push(dm.talking_user(current_user).id) %>
+        </div>
+    <% end %>
+<% end %>

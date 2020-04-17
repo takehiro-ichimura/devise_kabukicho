@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_072128) do
+ActiveRecord::Schema.define(version: 2020_04_17_090751) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
@@ -21,11 +21,13 @@ ActiveRecord::Schema.define(version: 2020_04_17_072128) do
   end
 
   create_table "dms", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "reciever_id"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "receive_user_id"
+    t.index ["receive_user_id"], name: "index_dms_on_receive_user_id"
+    t.index ["user_id"], name: "index_dms_on_user_id"
   end
 
   create_table "manpropaties", force: :cascade do |t|

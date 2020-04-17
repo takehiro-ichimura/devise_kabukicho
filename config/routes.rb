@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
   post "posts/:id/comment" => "posts#comment"
   get "posts/:id" => "posts#show"
+  get 'dms' => "dms#index"
+  get 'dms/:id' => "dms#show"
+  post "dms/:id/send" => "dms#dmsend"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
