@@ -6,7 +6,11 @@
 <% end %>
 
 <%= form_tag("/posts/create") do %>
+	<p>タイトル</p>
+	<textarea name="title"><%= @post.title %></textarea>
+	<br/>
+	<p>内容</p>
 	<textarea name="content"><%= @post.content %></textarea>
 	<br/>
-	<input type="submit" value="submit">
+	<input type="submit" value="投稿">
 <% end %>

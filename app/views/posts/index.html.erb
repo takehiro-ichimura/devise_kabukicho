@@ -3,8 +3,9 @@
 
 <% @posts.each do |post| %>
 	<div class="post-index-item">
-		投稿者:<%= post.user.id %>
+		投稿者:<%= link_to(post.user.username, "/users/#{post.user.id}") %>
 		<br/>
+        タイトル:<%= post.title %></br>
 		<%= post.content.truncate(50) %>
 		<br/>
 		投稿日時: 

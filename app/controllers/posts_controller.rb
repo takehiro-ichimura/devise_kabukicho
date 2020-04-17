@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, {only: [:new, :create, :show, :edit, :update, :destroy]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   def ensure_correct_user
-    if current_user.id != params[:id].to_i
+    if current_user.id != Post.find_by(id: params[:id]).user_id
       flash[:notice] = "この操作をする権限がありません"
       redirect_to("/posts/index")
     end
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.new(
+      title: params[:title],
       content: params[:content],
       user_id: current_user.id
     )
@@ -35,6 +36,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
   def update

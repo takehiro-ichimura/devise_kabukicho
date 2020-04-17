@@ -6,6 +6,10 @@
 <% end %>
 
 <%= form_tag("/posts/#{@post.id}/update") do %>
+	<p>タイトル</p>
+	<textarea name="content"><%= @post.content %></textarea>
+	<br/>
+	<p>内容</p>
 	<textarea name="content"><%= @post.content %></textarea>
 	<br/>
 	<input type="submit" value="更新">

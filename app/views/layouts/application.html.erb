@@ -12,8 +12,9 @@
   <body>
     <header>
       <nav>
+        <%= link_to("トップページ", "/") %>
           <% if user_signed_in? %>
-            <%= link_to("トップページ", "/") %>
+            <%= link_to("マイページ", "/users/#{current_user.id}") %>
             <%= link_to("投稿一覧", "/posts/index") %>
             <%= link_to("新規投稿", "/posts/new") %>
             <%= link_to 'プロフィール変更', edit_user_registration_path %>
