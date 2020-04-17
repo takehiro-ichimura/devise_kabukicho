@@ -13,6 +13,8 @@
 		<% if @user.id == current_user.id %>
 			<%= link_to("編集", edit_user_registration_path) %>
 			<%= link_to('ログアウト', destroy_user_session_path, method: :delete) %>
+		<% else %>
+			<%= link_to('DMを送る', "/dms/#{@user.id}") %>
 		<% end %>
 	</div>
 </div>

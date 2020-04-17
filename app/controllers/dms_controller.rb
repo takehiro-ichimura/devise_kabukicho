@@ -6,6 +6,9 @@ class DmsController < ApplicationController
     .or(Dm.where(user_id: current_user.id))
   end
   def show
+    if params[:id].to_i == current_user.id
+      redirect_to("/dms")
+    end
     @user = User.find_by(id: params[:id])
     @dms = Dm
     .where(user_id:current_user.id, receive_user_id: params[:id])
