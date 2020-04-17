@@ -1,0 +1,2 @@
+class Manpropaty < ApplicationRecord
+end

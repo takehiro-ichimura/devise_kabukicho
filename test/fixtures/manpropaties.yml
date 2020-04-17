@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  username: MyString
+  yakushoku_id: 1
+  birth_date: 2020-04-17
+  height: 1
+
+two:
+  user_id: 1
+  username: MyString
+  yakushoku_id: 1
+  birth_date: 2020-04-17
+  height: 1

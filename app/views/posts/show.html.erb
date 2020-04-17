@@ -5,6 +5,7 @@
 	<div class="post-user-name">
 		<%= link_to(@post.user.username, "/users/#{@post.user.id}") %>
 	</div>
+	タイトル:<br/>
 	本文: <%= @post.content %><br/>
 	<div class="post-time">
 		投稿日時:<%= @post.created_at %>
@@ -13,6 +14,23 @@
 		<div class="post-edit">
 			<%= link_to("投稿を編集", "/posts/#{@post.id}/edit") %>
 			<%= link_to("投稿を削除", "/posts/#{@post.id}/destroy", {method:"post"}) %>
+		</div>
 	<% end %>
+	<div>
+	<% @comments.each do |comment| %>
+		<div>
+		投稿者:<%= comment.user.user_id %>
+		<br/>
+		<%= comment.content.truncate(50) %>
+		<br/>
+		投稿日時: 
+		<%= comment.created_at.to_s[0, 16] %>
+		</div>
+	<% end %>
+	<%= form_tag("/posts/comment") do %>
+	<textarea name="content"></textarea>
+	<br/>
+	<input type="submit" value="コメントを投稿">
+<% end %>
 	</div>
 </div>

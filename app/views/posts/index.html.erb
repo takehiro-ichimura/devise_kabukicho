@@ -3,7 +3,7 @@
 
 <% @posts.each do |post| %>
 	<div class="post-index-item">
-		投稿者:<%= post.user.username %>
+		投稿者:<%= post.user.id %>
 		<br/>
 		<%= post.content.truncate(50) %>
 		<br/>
