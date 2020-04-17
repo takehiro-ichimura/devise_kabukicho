@@ -93,14 +93,15 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = {host: 'http://kabukicho-sns.herokuapp.com' }
-  config.action_mailer.raise_delivery_errors = false　#この一文も追記!!
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :user_name => "app168062169@heroku.com",
-  　　　　　　　　:password => "gd5edsfc6192",
+      :password => "gd5edsfc6192",
       :domain => "heroku.com",
       :address => "smtp.sendgrid.net",
       :port => 587,
       :authentication => :plain,
       :enable_starttls_auto => true
+}
 end
