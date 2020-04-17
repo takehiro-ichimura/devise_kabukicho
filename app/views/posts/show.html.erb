@@ -17,9 +17,10 @@
 		</div>
 	<% end %>
 	<div>
+	コメント</br>
 	<% @comments.each do |comment| %>
 		<div>
-		投稿者:<%= comment.user.user_id %>
+		投稿者:<%= comment.user_id %>
 		<br/>
 		<%= comment.content.truncate(50) %>
 		<br/>
@@ -27,10 +28,10 @@
 		<%= comment.created_at.to_s[0, 16] %>
 		</div>
 	<% end %>
-	<%= form_tag("/posts/comment") do %>
+	<%= form_tag("/posts/#{@post.id}/comment") do %>
 	<textarea name="content"></textarea>
 	<br/>
 	<input type="submit" value="コメントを投稿">
-<% end %>
+	<% end %>
 	</div>
 </div>

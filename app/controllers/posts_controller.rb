@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
   def show
     @post = Post.find_by(id: params[:id])
-    @comments = Comment.find_by(post_id: params[:id])
+    @comments = Comment.where(post_id: params[:id])
   end
   def edit
     @post = Post.find_by(id: params[:id])
@@ -41,10 +41,24 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
     if @post.save
-      flash[:notice] = "更新成功"
+      flash[:notice] = "スレッド更新成功"
       redirect_to("/posts/index")
     else
       render("posts/edit")
+    end
+  end
+  def comment
+    @comment = Comment.new(
+      content: params[:content],
+      user_id: current_user.id,
+      post_id: params[:id]
+    )
+    if @comment.save
+      flash[:notice] = "コメント成功"
+      redirect_to("/posts/#{params[:id]}")
+    else
+      flash[:notice] = "コメントできませんでした"
+      redirect_to("/posts/#{params[:id]}")
     end
   end
 end
