@@ -1,0 +1,31 @@
+<h1>プロフィール登録</_h1>
+
+ご利用の前にプロフィールの登録が必要です
+
+<% if @error_message %>
+	<p>
+	<%= @error_message %>
+	</p>
+	</br>
+<% end %>
+
+<div>
+<%= form_tag("/users/regist/create") do %>
+	<li>
+		身長<input name="height" value="<%= @womanpropaty.height %>">
+	</li>
+	<li>
+		体重<input name="weight" value="<%= @womanpropaty.weight %>">
+	</li>
+	<li>
+		誕生日<input type="date" min="1960-1-1" max="<%=Date.today%>" name="birth_date" value="<%= @womanpropaty.birth_date %>">
+	</li>
+	<li>
+		職業<input name="shokugyou" value="<%= @womanpropaty.shokugyou %>">
+	</li>
+	<li>
+		収入<input name="income" value="<%= @womanpropaty.income %>">
+	</li>
+	<input type="submit" value="登録">
+<% end %>
+</div>

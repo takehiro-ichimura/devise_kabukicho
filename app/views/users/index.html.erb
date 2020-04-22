@@ -4,8 +4,11 @@
 <% @users.each do |user| %>
 	<div class="user-index-item">
 		id:
-		<%= user.username %>
+		<%= user.id %>
 		<br/>
+		usertype:
+		<%= user.usertype %>
+		</br>
 		name:
 		<%= user.username %>
 		<%= link_to("more", "/users/#{user.id}")%>

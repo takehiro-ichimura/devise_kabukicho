@@ -1,0 +1,44 @@
+<h1>ホスト登録</_h1>
+
+<% if @error_message %>
+	<p>
+	<%= @error_message %>
+	</p>
+	</br>
+<% end %>
+
+<div>
+<%= form_tag("/users/manregist/create") do %>
+	<li>
+		身長<input name="height" value="<%= @manpropaty.height %>">
+	</li>
+	<li>
+		誕生日<input type="date" min="1960-1-1" max="<%=Date.today%>" name="birth_date" value="<%= @manpropaty.birth_date %>">
+	</li>
+	<li>
+		店舗<input name="tenmei" value="<%= @manpropaty.tenmei %>">
+	</li>
+	<li>
+		役職<input name="yakushoku" value="<%= @manpropaty.yakushoku %>">
+	</li>
+	<li>
+		似てる芸能人<input name="geinoujin" value="<%= @manpropaty.geinoujin %>">
+	</li>
+	<li>
+		営業形態
+		<li>
+		<input type="checkbox" value="<%= @manpropaty.honei %>" name="honei">本営
+		</li>
+		<li>
+		<input type="checkbox" value="<%= @manpropaty.tomoei %>" name="tomoei">友営
+		</li>
+		<li>
+		<input type="checkbox" value="<%= @manpropaty.nomikei %>" name="nomikei">飲み系
+		</li>
+		<li>
+		<input type="checkbox" value="<%= @manpropaty.owaraikei %>" name="owaraikei">お笑い系
+		</li>
+	</li>
+	<input type="submit" value="登録">
+<% end %>
+</div>
