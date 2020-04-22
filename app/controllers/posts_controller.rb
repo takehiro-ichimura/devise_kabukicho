@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, {only: [:new, :create, :show, :edit, :update, :destroy]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+  before_action :manforbid_unregist
+  before_action :womanforbid_unregist
   def ensure_correct_user
     if current_user.id != Post.find_by(id: params[:id]).user_id
       flash[:notice] = "この操作をする権限がありません"

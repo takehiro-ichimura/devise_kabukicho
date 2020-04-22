@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_090751) do
+ActiveRecord::Schema.define(version: 2020_04_22_044150) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
@@ -33,11 +33,18 @@ ActiveRecord::Schema.define(version: 2020_04_17_090751) do
   create_table "manpropaties", force: :cascade do |t|
     t.integer "user_id"
     t.string "username"
-    t.integer "yakushoku_id"
     t.date "birth_date"
     t.integer "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tenmei"
+    t.string "yakushoku"
+    t.string "geinoujin"
+    t.boolean "honei", default: false, null: false
+    t.boolean "tomoei", default: false, null: false
+    t.boolean "nomikei", default: false, null: false
+    t.boolean "owaraikei", default: false, null: false
+    t.string "senden"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -80,13 +87,13 @@ ActiveRecord::Schema.define(version: 2020_04_17_090751) do
   create_table "womanpropaties", force: :cascade do |t|
     t.integer "user_id"
     t.string "username"
-    t.integer "shokugyou_id"
     t.date "birth_date"
     t.integer "height"
     t.integer "weight"
     t.integer "income"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shokugyou"
   end
 
 end

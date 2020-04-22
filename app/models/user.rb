@@ -11,7 +11,8 @@ class User < ApplicationRecord
   
   def sent_dms(other_user, content) #メッセージを送るためのメソッド
       unless self == other_user
-        self.dms.find_or_create_by(receive_user_id: other_user.id, content: content)
+        #self.dms.find_or_create_by(receive_user_id: other_user.id, content: content)
+        self.dms.create(receive_user_id: other_user.id, content: content)
       end
   end
 end

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get '/' => "home#top"
   get '/about' => "home#about"
   get "/users/index" => "users#index"
+  post 'users/regist/create' => "users#womancreate"
+  get 'users/regist' => "users#womanregist"
+  post 'users/manregist/create' => "users#mancreate"
+  get 'users/manregist' => "users#manregist"
   get "users/:id" => "users#show"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
@@ -18,5 +22,6 @@ Rails.application.routes.draw do
   get 'dms' => "dms#index"
   get 'dms/:id' => "dms#show"
   post "dms/:id/send" => "dms#dmsend"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
