@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :manforbid_unregist, except: [:mancreate, :manregist]
-  before_action :manforbid_unregist, except: [:womancreate, :womanregist]
+  before_action :womanforbid_unregist, except: [:womancreate, :womanregist]
   def index
     @users = User.all
   end
