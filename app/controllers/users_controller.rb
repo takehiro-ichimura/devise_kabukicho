@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       income: params[:income]
     )
     if @womanpropaty.save
-      flash[:notice] = "保存成功"
+      flash[:notice] = "保存成功!!!"
       redirect_to("/")
     else
       render("users/#{current_user.id}")
